@@ -17,7 +17,7 @@ public class Program
     }
 }
 
+// See for deploying to github pages.
 // https://github.com/jsakamoto/PublishSPAforGitHubPages.Build
-
 // dotnet add package PublishSPAforGitHubPages.Build
 // dotnet publish -c:Release -p:GHPages=true
