@@ -17,6 +17,7 @@ public class Program
     }
 }
 
-// dotnet new gitignore
+// https://github.com/jsakamoto/PublishSPAforGitHubPages.Build
+
 // dotnet add package PublishSPAforGitHubPages.Build
 // dotnet publish -c:Release -p:GHPages=true
