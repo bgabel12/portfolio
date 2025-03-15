@@ -1,12 +1,19 @@
 ﻿@inherits LayoutComponentBase
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject IJSRuntime jsRuntime
+
 <div class="page">
   <main>
-    @* <div class="top-row px-4">
-          <a href="" target="_blank">Link</a>
-    </div> *@
-     
-    <article class="content px-4">
-        @Body
+    <button id="themeToggle" class='@(DarkMode ? "btn btn-sm btn-light position-absolute top-0 end-0 mt-3 me-3 pt-0 pb-0" : "btn btn-sm btn-dark position-absolute top-0 end-0 mt-3 me-3 pt-0 pb-0")' @onclick="OnThemeClick">
+      @ThemeToggleText
+    </button>
+
+    <button id="btn-back-to-top" class='@(DarkMode ? "btn btn-primary rounded-circle pt-2 pb-2" : "btn btn-outline-primary rounded-circle pt-2 pb-2")' @onclick="OnBackToTopClick">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <article class="content px-1">
+      @Body
     </article>
   </main>
 </div>

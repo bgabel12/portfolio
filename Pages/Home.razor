@@ -1,14 +1,14 @@
 ﻿@page "/"
+@inject IJSRuntime jsRuntime
 
 <PageTitle>Brent Gabel</PageTitle>
 
-<div class="container mt-5">
+<div class="mt-5 container">
   <!-- Hero Section -->
-  <section class="text-center mb-5">
+  <section class="mb-5 text-center">
     <h1 class="display-4"><span class="text-primary">Brent Gabel</span></h1>
     <p class="lead">Senior Software Engineer | .NET | Azure | Cloud Infrastructure</p>
     <div class="d-flex justify-content-center gap-3">
-      <a href="#experience" class="btn btn-outline-primary">View My Work</a>
       <a href="https://www.linkedin.com/in/brent-gabel-a327569" class="btn btn-primary">
         <i class="bi bi-linkedin"></i> LinkedIn
       </a>
@@ -48,7 +48,7 @@
   <section id="skills" class="mb-5">
     <h2 class="text-center">Skills</h2>
     <div class="container">
-      <table class="table border-secondary-subtle">
+      <table class="border-secondary-subtle table">
         <tbody>
           <!-- Software Architecture & Performance -->
           <tr>
@@ -57,9 +57,9 @@
               <span class="badge bg-primary m-1">Microservices</span>
               <span class="badge bg-secondary m-1">Domain-Driven Design (DDD)</span>
               <span class="badge bg-primary m-1">Event-Driven Architecture</span>
-              <span class="badge bg-secondary m-1">Message Queues (RabbitMQ, Kafka, NATS.io)</span>
+              <span class="badge bg-secondary m-1">Message Queues</span>
               <span class="badge bg-primary m-1">High Availability & Scaling</span>
-              <span class="badge bg-secondary m-1">Profiling & Performance Tuning</span>
+              <span class="badge bg-secondary m-1">Profiling & Performance</span>
               <span class="badge bg-primary m-1">Memory Management</span>
               <span class="badge bg-secondary m-1">Load Balancing</span>
               <span class="badge bg-primary m-1">ETL/ELT</span>
@@ -215,7 +215,7 @@
           </tr>
 
           <!-- Tools & Productivity -->
-          <tr class="border-white">
+          <tr>
             <td class="align-middle"><strong>Tools & Productivity:</strong></td>
             <td class="align-middle">
               <span class="badge bg-primary m-1">Visual Studio</span>
@@ -252,7 +252,7 @@
 
   <!-- Work Experience Section -->
   <section id="experience" class="mb-5">
-    <h2 class="text-center mb-4">Work Experience</h2>
+    <h2 class="mb-4 text-center">Work Experience</h2>
     <div class="container">
       <!-- Experience 1 -->
       <div class="mb-4">
@@ -292,12 +292,30 @@
 
   <!-- Projects Section -->
   <section id="projects" class="mb-5">
-    <h2 class="text-center mb-4">Projects</h2>
+    <h2 class="mb-4 text-center">Projects</h2>
     <div class="container">
       <p>
-        Throughout my career as a <strong>Senior Software Engineer</strong>, I have designed and implemented multiple
-        <strong>SOA-based solutions</strong> that enable seamless communication between distributed systems. One of the most
-        notable projects was my work on the <strong>Lojic Dashboards</strong> platform and its integration with enterprise ERP software.
+        Throughout my career as a Software Engineer, I have designed and implemented multiple solutions that enable seamless communication between distributed systems.
+        One of the most notable projects was my work on the <a href="https://www.youtube.com/@@jobboss4393/search?query=Lojic" target="_blank">Lojic Dashboards</a> 
+        platform and its integration with enterprise ERP software.
+      </p>
+
+      <p>
+        <div class="container text-center">
+          <div class="row">
+            <!-- Image 1 -->
+            <div class="col-md-6">
+              <img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
+                   @onclick='@(() => OnImageClick("imageModal1"))' style="cursor: pointer;">
+            </div>
+
+            <!-- Image 2 -->
+            <div class="col-md-6">
+              <img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
+                   @onclick='@(() => OnImageClick("imageModal2"))' style="cursor: pointer;">
+            </div>
+          </div>
+        </div>
       </p>
 
       <p>
@@ -313,10 +331,11 @@
         Additionally, I created the <strong>Dashboard Player</strong> software, a cross-platform application deployed on
         Windows and Linux devices, typically installed on <strong>single-board computers</strong> for digital signage purposes.
         The management layer of this system was hosted in Azure, where I designed a <strong>cloud-based command and control system</strong>.
-        <div class="container text-center my-4">
+        <div class="my-4 container text-center">
           <figure>
-            <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager Screenshot">
             <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
+            <img src="images/player_manager.png" class="img-fluid w-50 d-block mx-auto rounded shadow-lg" alt="Player Manager Screenshot"
+                 style="cursor: pointer;" @onclick='@(() => OnImageClick("imageModal3"))'>
           </figure>
         </div>
       </p>
@@ -349,7 +368,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="text-center mb-5">
+  <section id="contact" class="mb-5 text-center">
     <p class="lead fw-bold">Feel free to contact me on LinkedIn.</p>
     <div class="d-flex justify-content-center gap-3">
       <a href="https://www.linkedin.com/in/brent-gabel-a327569" class="btn btn-primary">
@@ -360,4 +379,60 @@
       </a>
     </div>
   </section>
+
+
+
+  <!-- Modal for Image 1 -->
+  <div class="modal fade" id="imageModal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lojic Dashboards</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="images/lojic_dashboards.png" class="img-fluid rounded" alt="Lojic Dashboards">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Image 2 -->
+  <div class="modal fade" id="imageModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lojic Dashboards Display</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="images/lojic_dashboards_display.png" class="img-fluid rounded" alt="Lojic Dashboards Display">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Image 3 -->
+  <div class="modal fade" id="imageModal3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lojic Dashboards - Player Manager</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="images/player_manager.png" class="img-fluid rounded" alt="Player Manager">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
