@@ -103,15 +103,15 @@ function displayIcons(lib) {
 
 function IconClassToClipboard(iconClass) {
   if (iconClass) {
-    var iconname = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "");
+    /* Alert the copied text */
+    const toastDiv = document.querySelector('.toast');
+    toastDiv.innerHTML = "<div class='" + iconClass + " fs-4 d-inline me-2'></div> <div class='fs-4 d-inline'>Copied to clipboard!</div>"
+    const toast = new bootstrap.Toast(toastDiv);
+
+    var iconname = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace(" colored", "");
     iconClass = "<i class='" + iconClass + "'></i> " + iconname 
     navigator.clipboard.writeText(iconClass);
 
-    /* Alert the copied text */
-    const toastDiv = document.querySelector('.toast');
-    //toastDiv.innerHTML = "" + iconClass + "<br/>" + "Copied to clipboard!";
-    toastDiv.innerHTML = "<div class='" + iconClass +" fs-4 d-inline me-2'></div> <div class='fs-4 d-inline'>Copied to clipboard!</div>"
-    const toast = new bootstrap.Toast(toastDiv);
     toast.show();
   }
 } 
