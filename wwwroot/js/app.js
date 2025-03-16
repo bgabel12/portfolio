@@ -103,6 +103,8 @@ function displayIcons(lib) {
 
 function IconClassToClipboard(iconClass) {
   if (iconClass) {
+    var iconname = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "");
+    iconClass = "<i class='" + iconClass + "'></i> " + iconname 
     navigator.clipboard.writeText(iconClass);
 
     /* Alert the copied text */
