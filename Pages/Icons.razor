@@ -1,0 +1,32 @@
+﻿@page "/icons"
+@inject IJSRuntime jsRuntime
+
+<div class="toast-container position-fixed top-50 start-50 translate-middle text-center">
+  <div class="toast fade p-1" data-bs-delay="2000" data-bs-autohide="true" data-bs-animation="true"></div>
+</div>
+
+<div class="mt-5 mb-4 text-center">
+  <h1 class="display-4"><span class="text-success">Icons</span></h1>
+</div>
+
+<div class="row mb-4 text-center">
+  <div class="col text-end">
+    <button class="btn btn-outline-success border-0" @onclick='@(() => GetIcons("di"))'>
+      <div class="devicon-devicon-plain colored d-inline"></div> Devicon
+    </button>
+  </div>
+  <div class="col">
+    <button class="btn btn-outline-warning border-0" @onclick='@(() => GetIcons("fa"))'>
+      <div class="fas fa-font-awesome d-inline"></div> Font-Awesome
+    </button>
+  </div>
+  <div class="col text-start">
+    <button class="btn btn-outline-primary border-0" @onclick='@(() => GetIcons("bi"))'>
+      <div class="bi bi-bootstrap-fill d-inline"></div> Bootstrap
+    </button>
+  </div>
+</div>
+
+<div id="diContainer" class="iconContainer"></div>
+<div id="faContainer" class="iconContainer"></div>
+<div id="biContainer" class="iconContainer"></div>

@@ -1,0 +1,37 @@
+﻿body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 5px;
+}
+
+.iconContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 15px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+::deep .icon-box {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #0084d0;
+  border-radius: 8px;
+  /*background: #f9f9f9;*/
+  transition: transform 0.2s ease-in-out;
+}
+
+  ::deep .icon-box:hover {
+    transform: scale(1.5);
+  }
+
+::deep i {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+::deep .icon-name {
+  font-size: 10px;
+  color: #333;
+}
