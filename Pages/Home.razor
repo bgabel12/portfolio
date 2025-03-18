@@ -61,7 +61,8 @@
             <div class="accordion-body">
               <div class="d-print-none container text-center">
                 <figure>
-                  <img src="images/aloraops-demo.gif" alt="AloraOps Demo" class="img-fluid shadow-lg" style="max-width: 400px;">
+                  <img src="images/aloraops-demo.gif" alt="AloraOps - Operator Module" class="img-fluid shadow-lg" style="max-width: 400px;cursor: pointer;"
+                       @onclick="@(() => OnImageClick("AloraOps - Operator Module", "aloraops-demo.gif"))" />
                   <figcaption class="mt-2 text-muted">AloraOps - Operator Module</figcaption>
                 </figure>
               </div>
@@ -136,28 +137,32 @@
               </ul>
 
               <p>The AloraOps project significantly improved operational efficiency by automating job tracking, downtime reporting, and real-time machine monitoring, seamlessly syncing data with the ERP system.</p>
-              <div class="row">
-                <div class="col">
+              <div class="row mb-5">
+                <div class="col col-sm-12 col-md-3">
                   <figure>
-                    <img src="images/operator_jobs.png" class="img-fluid rounded shadow" alt="Operator Job Screen" />
+                    <img src="images/operator_jobs.png" class="img-fluid rounded shadow" alt="Operator Job Screen"
+                         @onclick="@(() => OnImageClick("Operator Module - Jobs", "operator_jobs.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
-                <div class="col">
+                <div class="col col-sm-12 col-md-3">
                   <figure>
-                    <img src="images/manager_machines.png" class="img-fluid rounded shadow" alt="Manager Machines Screen" />
+                    <img src="images/manager_machines.png" class="img-fluid rounded shadow" alt="Manager Machines Screen"
+                         @onclick="@(() => OnImageClick("Manager Module - Machines", "manager_machines.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
-                <div class="col">
+                <div class="col col-sm-12 col-md-3">
                   <figure>
-                    <img src="images/manager_jobs.png" class="img-fluid rounded shadow" alt="Manager Jobs Screen" />
+                    <img src="images/manager_jobs.png" class="img-fluid rounded shadow" alt="Manager Jobs Screen"
+                         @onclick="@(() => OnImageClick("Manager Module - Jobs", "manager_jobs.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
-                <div class="col">
+                <div class="col col-sm-12 col-md-3">
                   <figure>
-                    <img src="images/manager_activities.png" class="img-fluid rounded shadow" alt="Manager Activities Screen" />
+                    <img src="images/manager_activities.png" class="img-fluid rounded shadow" alt="Manager Activities Screen"
+                         @onclick="@(() => OnImageClick("Manager Module - Activities", "manager_activities.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
@@ -244,13 +249,13 @@
                     <!-- Image 1 -->
                     <div class="col-md-6">
                       <img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
-                           @onclick='@(() => OnImageClick("imageModal1"))' style="cursor: pointer;">
+                           @onclick='@(() => OnImageClick("Lojic Dashboards", "lojic_dashboards.png"))' style="cursor: pointer;">
                     </div>
 
                     <!-- Image 2 -->
                     <div class="col-md-6">
                       <img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
-                           @onclick='@(() => OnImageClick("imageModal2"))' style="cursor: pointer;">
+                           @onclick='@(() => OnImageClick("Lojic Dashboards - Display on Shop Floor", "lojic_dashboards_display.png"))' style="cursor: pointer;">
                     </div>
                   </div>
                 </div>
@@ -272,8 +277,8 @@
                 <div class="my-4 container text-center">
                   <figure>
                     <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
-                    <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager Screenshot"
-                         @onclick='@(() => OnImageClick("imageModal3"))' style="cursor: pointer;">
+                    <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager"
+                         @onclick='@(() => OnImageClick("Player Manager", "player_manager.png"))' style="cursor: pointer;">
                   </figure>
                 </div>
               </p>
@@ -735,54 +740,16 @@
     </div>
   </section>
 
-
-
-  <!-- Modal for Image 1 -->
-  <div class="modal fade" id="imageModal1" tabindex="-1" aria-hidden="true">
+  <!-- Image Modal -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Lojic Dashboards</h5>
+          <h5 class="modal-title">@ImageTitle</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <img src="images/lojic_dashboards.png" class="img-fluid rounded" alt="Lojic Dashboards">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for Image 2 -->
-  <div class="modal fade" id="imageModal2" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Lojic Dashboards Display</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <img src="images/lojic_dashboards_display.png" class="img-fluid rounded" alt="Lojic Dashboards Display">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for Image 3 -->
-  <div class="modal fade" id="imageModal3" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Lojic Dashboards - Player Manager</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <img src="images/player_manager.png" class="img-fluid rounded" alt="Player Manager">
+          <img src="images/@ImageFileName" class="img-fluid rounded" alt="@ImageTitle">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

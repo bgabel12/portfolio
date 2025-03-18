@@ -29,8 +29,8 @@ function setTheme(theme) {
   document.documentElement.setAttribute("data-bs-theme", theme);
 }
 
-function showModal(name) {
-  var modal = new bootstrap.Modal(document.getElementById(name), {});
+function showImageModal() {
+  var modal = new bootstrap.Modal(document.getElementById("imageModal"), {});
   modal.show(); 
 }
 
