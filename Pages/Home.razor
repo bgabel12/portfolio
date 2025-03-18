@@ -7,8 +7,8 @@
   <!-- Hero Section -->
   <section class="mb-5 text-center">
     <h1 class="display-4"><span class="text-primary">Brent Gabel</span></h1>
-    <p class="lead">Senior Software Engineer | .NET | Azure | Cloud Infrastructure</p>
-    <div class="d-flex justify-content-center gap-3">
+    <p class="lead">Senior Software Engineer | Cloud Infrastructure</p>
+    <div class="d-print-none d-flex justify-content-center gap-3">
       <a href="https://www.linkedin.com/in/brent-gabel-a327569" class="btn btn-primary">
         <i class="bi bi-linkedin"></i> LinkedIn
       </a>
@@ -48,79 +48,164 @@
 
   <!-- Projects Section -->
   <section id="projects" class="mb-5">
-    <h2 class="mb-4 text-center"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
     <div class="container">
-      <p>
-        Throughout my career as a Software Engineer, I have designed and implemented multiple solutions that enable seamless communication between distributed systems.
-        One of the most notable projects was my work on the <a href="https://www.youtube.com/@@jobboss4393/search?query=Lojic" target="_blank">Lojic Dashboards</a>
-        platform and its integration with enterprise ERP software.
-      </p>
+      <h2 class="mb-4 text-center"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+      <div class="accordion" id="projectsPanels">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#projectOnePanel" aria-expanded="false" aria-controls="projectOnePanel">
+              <i class="fa-solid fa-circle-nodes me-3"></i> Alora Edge – A Practical Solution for Industrial Data Collection
+            </button>
+          </div>
+          <div id="projectOnePanel" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <p>
+                At the time, the existing third-party solution for machine data collection was costly, outdated, and inefficient.
+                Customers faced long wait times for implementation due to the vendor’s limited installation team,
+                delaying access to critical operational data. The reliance on proprietary hardware and software
+                further increased costs and restricted flexibility.
+              </p>
 
-      <p>
-        <div class="container text-center">
-          <div class="row">
-            <!-- Image 1 -->
-            <div class="col-md-6">
-              <img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
-                   @onclick='@(() => OnImageClick("imageModal1"))' style="cursor: pointer;">
-            </div>
+              <p>
+                To address these challenges, I developed <strong>Alora Edge</strong>, a robust and scalable
+                <strong>edge service</strong> designed to collect, standardize, and store machine data using
+                widely adopted industrial protocols. This solution enabled manufacturers to streamline
+                data acquisition, reduce costs, and eliminate long lead times associated with third-party installations.
+              </p>
 
-            <!-- Image 2 -->
-            <div class="col-md-6">
-              <img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
-                   @onclick='@(() => OnImageClick("imageModal2"))' style="cursor: pointer;">
+              <h5 class="mt-4">Key Features</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <strong>Windows Service for Data Collection:</strong> Built using
+                  <strong>C# and .NET Core</strong>, the service connects to machines and devices
+                  through <strong>MTConnect, OPC UA, MQTT</strong>, and other protocols,
+                  ensuring compatibility with a wide range of industrial equipment.
+                </li>
+                <li class="list-group-item">
+                  <strong>Blazor-Based Management Interface:</strong> Developed a
+                  <strong>Blazor application</strong> to provide an intuitive interface
+                  for configuring machine connectivity, managing data collection settings,
+                  and selecting relevant data points. A <strong>SQLite database</strong>
+                  was used to store configurations for both the service and the management application.
+                </li>
+                <li class="list-group-item">
+                  <strong>Custom Installer for Deployment:</strong> Created a
+                  <strong>WiX Toolset-based installer</strong>, simplifying the deployment process
+                  for customers and technical support teams. This eliminated the need for manual setup,
+                  reducing installation complexity and ensuring a seamless experience.
+                </li>
+              </ul>
+
+              <h5 class="mt-4">Impact</h5>
+              <p>
+                By implementing <strong>Alora Edge</strong>, manufacturers gained a
+                <strong>cost-effective, flexible, and self-managed</strong> data collection system.
+                The solution reduced reliance on third-party vendors, allowing for
+                <strong>faster deployment, improved data accessibility, and long-term cost savings</strong>.
+                The use of <strong>widely supported industrial protocols</strong> ensured seamless integration
+                with existing infrastructure, enabling organizations to make real-time, data-driven
+                decisions without being locked into proprietary ecosystems.
+              </p>
             </div>
           </div>
         </div>
-      </p>
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#projectTwoPanel" aria-expanded="false" aria-controls="projectTwoPanel">
+              <i class="fa-solid fa-magnifying-glass-chart me-3"></i> Player Manager - A cloud-based command and control system.
+            </button>
+          </div>
+          <div id="projectTwoPanel" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              <p>
+                Throughout my career as a Software Engineer, I have designed and implemented multiple solutions that enable seamless communication between distributed systems.
+                One of the most notable projects was my work on the <a href="https://www.youtube.com/@@jobboss4393/search?query=Lojic" target="_blank">Lojic Dashboards</a>
+                platform and its integration with enterprise ERP software.
+              </p>
 
-      <p>
-        In this role, I developed and maintained services that facilitated data exchange between the dashboard platform
-        and various ERP systems, ensuring <strong>scalability, reliability, and security</strong>. This involved:
-      </p>
-      <ul>
-        <li>Designing <strong>RESTful APIs</strong> for data integration.</li>
-        <li>Handling real-time data streaming and asynchronous processing using cloud services.</li>
-      </ul>
+              <p>
+                <div class="container text-center">
+                  <div class="row">
+                    <!-- Image 1 -->
+                    <div class="col-md-6">
+                      <img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
+                           @onclick='@(() => OnImageClick("imageModal1"))' style="cursor: pointer;">
+                    </div>
 
-      <p>
-        Additionally, I created the <strong>Dashboard Player</strong> software, a cross-platform application deployed on
-        Windows and Linux devices, typically installed on <strong>single-board computers</strong> for digital signage purposes.
-        The management layer of this system was hosted in Azure, where I designed a <strong>cloud-based command and control system</strong>.
-        <div class="my-4 container text-center">
-          <figure>
-            <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
-            <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager Screenshot"
-                 @onclick='@(() => OnImageClick("imageModal3"))' style="cursor: pointer;">
-          </figure>
+                    <!-- Image 2 -->
+                    <div class="col-md-6">
+                      <img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
+                           @onclick='@(() => OnImageClick("imageModal2"))' style="cursor: pointer;">
+                    </div>
+                  </div>
+                </div>
+              </p>
+
+              <p>
+                In this role, I developed and maintained services that facilitated data exchange between the dashboard platform
+                and various ERP systems, ensuring <strong>scalability, reliability, and security</strong>. This involved:
+              </p>
+              <ul>
+                <li>Designing <strong>RESTful APIs</strong> for data integration.</li>
+                <li>Handling <strong>real-time data streaming</strong> and <strong>asynchronous processing</strong> using cloud services.</li>
+              </ul>
+
+              <p>
+                Additionally, I created the Player software, a cross-platform application deployed on
+                Windows and Linux devices, typically installed on <strong>single-board computers</strong> for digital signage purposes.
+                The management layer of this system was hosted in Azure, where I designed a cloud-based command and control system.
+                <div class="my-4 container text-center">
+                  <figure>
+                    <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
+                    <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager Screenshot"
+                         @onclick='@(() => OnImageClick("imageModal3"))' style="cursor: pointer;">
+                  </figure>
+                </div>
+              </p>
+
+              This architecture leveraged:
+              <ul>
+                <li><strong>Azure Queues & Blob Storage</strong> for asynchronous messaging and configuration management.</li>
+                <li><strong>Microservices</strong> to handle command processing, player status monitoring, and remote updates.</li>
+                <li><strong>Secure API endpoints</strong> for managing device communication and remote control functions.</li>
+              </ul>
+
+              <p>
+                This system allowed administrators to remotely configure players, send commands (e.g., reboots, content updates),
+                and retrieve device status through a web-based management portal.
+              </p>
+
+              <p>
+                My experience with <strong>SOA</strong> extends beyond this project, as I have also worked on cloud-native applications using
+                <strong>Azure Function Apps, Durable Functions,</strong> and <strong>microservices architectures</strong> to build scalable and
+                resilient enterprise solutions.
+              </p>
+
+              <p>
+                By leveraging <strong>SOA principles</strong>, I have successfully designed systems that promote
+                <strong>modularity, interoperability, and maintainability </strong>,
+                ensuring smooth integration between various business applications and cloud services.
+              </p>
+            </div>
+          </div>
         </div>
-      </p>
+        <div class="accordion-item d-none">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#projectThreePanel" aria-expanded="false" aria-controls="projectThreePanel">
+              AloraOps - 
+            </button>
+          </h2>
+          <div id="projectThreePanel" class="accordion-collapse collapse">
+            <div class="accordion-body">
+            </div>
+          </div>
+        </div>
+      </div>
 
-      This architecture leveraged:
-      <ul>
-        <li><strong>Azure Queues & Blob Storage</strong> for asynchronous messaging and configuration management.</li>
-        <li><strong>Microservices</strong> to handle command processing, player status monitoring, and remote updates.</li>
-        <li><strong>Secure API endpoints</strong> for managing device communication and remote control functions.</li>
-      </ul>
 
-      <p>
-        This system allowed administrators to remotely configure players, send commands (e.g., reboots, content updates),
-        and retrieve device status through a web-based management portal.
-      </p>
-
-      <p>
-        My experience with <strong>SOA</strong> extends beyond this project, as I have also worked on cloud-native applications using
-        <strong>Azure Function Apps, Durable Functions,</strong> and <strong>microservices architectures</strong> to build scalable and
-        resilient enterprise solutions.
-      </p>
-
-      <p>
-        By leveraging <strong>SOA principles</strong>, I have successfully designed systems that promote <strong>
-          modularity, interoperability,
-          and maintainability
-        </strong>, ensuring smooth integration between various business applications and cloud services.
-      </p>
-    </div>
+      
+      
+    </div>    
   </section>
 
   <!-- Work Experience Section -->
@@ -166,7 +251,7 @@
   <!-- Short Skills Section -->
   <section id="short-skills" class="mb-5">
     <h2 class="text-center"><i class="fas fa-tools"></i> Skills</h2>
-    <div class="container">
+    <div class="d-print-none container">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
 
         <!-- Software Architecture -->
@@ -278,7 +363,7 @@
     </div>
 
     <!-- Toggle Button -->
-    <div class="mt-4 text-center">
+    <div class="mt-4 d-print-none text-center">
       <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#skills">
         <i class="fas fa-list"></i> View All Skills
       </button>
@@ -495,7 +580,7 @@
   </section>
 
   <!-- Favorite Podcasts Section -->
-  <section id="podcasts" class="mb-5">
+  <section id="podcasts" class="d-print-none mb-5">
     <h2 class="text-center"><i class="fas fa-podcast"></i> My Favorite Podcasts</h2>
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -538,7 +623,7 @@
 
 
   <!-- Contact Section -->
-  <section id="contact" class="mb-5 text-center">
+  <section id="contact" class="d-print-none mb-5 text-center">
     <p class="lead fw-bold">Feel free to contact me on LinkedIn.</p>
     <div class="d-flex justify-content-center gap-3">
       <a href="https://www.linkedin.com/in/brent-gabel-a327569" class="btn btn-primary">
