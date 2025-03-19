@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IJSRuntime jsRuntime
+@inject HttpClient http
 
 <PageTitle>Brent Gabel</PageTitle>
 
@@ -62,7 +63,7 @@
               <div class="d-print-none container text-center">
                 <figure>
                   <img src="images/aloraops-demo.gif" alt="AloraOps - Operator Module" class="img-fluid shadow-lg" style="max-width: 400px;cursor: pointer;"
-                       @onclick="@(() => OnImageClick("AloraOps - Operator Module", "aloraops-demo.gif"))" />
+                  @onclick="@(() => OnImageClick("AloraOps - Operator Module", "aloraops-demo.gif"))" />
                   <figcaption class="mt-2 text-muted">AloraOps - Operator Module</figcaption>
                 </figure>
               </div>
@@ -141,28 +142,28 @@
                 <div class="col col-sm-12 col-md-3">
                   <figure>
                     <img src="images/operator_jobs.png" class="img-fluid rounded shadow" alt="Operator Job Screen"
-                         @onclick="@(() => OnImageClick("Operator Module - Jobs", "operator_jobs.png"))" style="cursor: pointer;" />
+                    @onclick="@(() => OnImageClick("Operator Module - Jobs", "operator_jobs.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
                 <div class="col col-sm-12 col-md-3">
                   <figure>
                     <img src="images/manager_machines.png" class="img-fluid rounded shadow" alt="Manager Machines Screen"
-                         @onclick="@(() => OnImageClick("Manager Module - Machines", "manager_machines.png"))" style="cursor: pointer;" />
+                    @onclick="@(() => OnImageClick("Manager Module - Machines", "manager_machines.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
                 <div class="col col-sm-12 col-md-3">
                   <figure>
                     <img src="images/manager_jobs.png" class="img-fluid rounded shadow" alt="Manager Jobs Screen"
-                         @onclick="@(() => OnImageClick("Manager Module - Jobs", "manager_jobs.png"))" style="cursor: pointer;" />
+                    @onclick="@(() => OnImageClick("Manager Module - Jobs", "manager_jobs.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
                 <div class="col col-sm-12 col-md-3">
                   <figure>
                     <img src="images/manager_activities.png" class="img-fluid rounded shadow" alt="Manager Activities Screen"
-                         @onclick="@(() => OnImageClick("Manager Module - Activities", "manager_activities.png"))" style="cursor: pointer;" />
+                    @onclick="@(() => OnImageClick("Manager Module - Activities", "manager_activities.png"))" style="cursor: pointer;" />
                     <figcaption class="mt-2 text-muted"></figcaption>
                   </figure>
                 </div>
@@ -249,13 +250,13 @@
                     <!-- Image 1 -->
                     <div class="col-md-6">
                       <img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
-                           @onclick='@(() => OnImageClick("Lojic Dashboards", "lojic_dashboards.png"))' style="cursor: pointer;">
+                      @onclick='@(() => OnImageClick("Lojic Dashboards", "lojic_dashboards.png"))' style="cursor: pointer;">
                     </div>
 
                     <!-- Image 2 -->
                     <div class="col-md-6">
                       <img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
-                           @onclick='@(() => OnImageClick("Lojic Dashboards - Display on Shop Floor", "lojic_dashboards_display.png"))' style="cursor: pointer;">
+                      @onclick='@(() => OnImageClick("Lojic Dashboards - Display on Shop Floor", "lojic_dashboards_display.png"))' style="cursor: pointer;">
                     </div>
                   </div>
                 </div>
@@ -278,7 +279,7 @@
                   <figure>
                     <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
                     <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager"
-                         @onclick='@(() => OnImageClick("Player Manager", "player_manager.png"))' style="cursor: pointer;">
+                    @onclick='@(() => OnImageClick("Player Manager", "player_manager.png"))' style="cursor: pointer;">
                   </figure>
                 </div>
               </p>
@@ -351,6 +352,10 @@
         </ul>
       </div>
     </div>
+  </section>
+
+  <section id="test" class="mb-5">
+    
   </section>
 
   <!-- Short Skills Section -->
@@ -479,205 +484,29 @@
       <div class="container">
         <table class="border-secondary-subtle table">
           <tbody>
-            <!-- Software Architecture & Performance -->
-            <tr>
-              <td class="align-middle"><strong>Software Architecture & Concepts:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">Microservices</span>
-                <span class="badge bg-secondary m-1">Domain-Driven Design (DDD)</span>
-                <span class="badge bg-primary m-1">Event-Driven Architecture</span>
-                <span class="badge bg-secondary m-1">Message Queues</span>
-                <span class="badge bg-primary m-1">High Availability & Scaling</span>
-                <span class="badge bg-secondary m-1">Profiling & Performance</span>
-                <span class="badge bg-primary m-1">Memory Management</span>
-                <span class="badge bg-secondary m-1">Load Balancing</span>
-                <span class="badge bg-primary m-1">ETL/ELT</span>
-                <span class="badge bg-secondary m-1">Clean Architecture</span>
-                <span class="badge bg-primary m-1">Hexagonal Architecture</span>
-              </td>
-            </tr>
+            @foreach (var category in SkillCategories)
+            {
+              <tr>
+                <td class="align-middle"><strong>@category</strong></td>
+                <td class="align-middle">
+                  @{
+                    var catSkills = Skills.Where(x => x.Category == category);
+                    var primaryBadge = "badge bg-primary m-1";
+                    var secondaryBadge = "badge bg-secondary m-1";
+                    var badge = string.Empty;
+                    foreach (var cs in catSkills)
+                    {
+                      if (badge == primaryBadge)
+                        badge = secondaryBadge;
+                      else
+                        badge = primaryBadge;
 
-            <!-- Cloud & DevOps -->
-            <tr>
-              <td class="align-middle"><strong>Cloud & DevOps:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">Microsoft Azure</span>
-                <span class="badge bg-secondary m-1">AWS</span>
-                <span class="badge bg-primary m-1">GCP</span>
-                <span class="badge bg-secondary m-1">Digital Ocean</span>
-                <span class="badge bg-primary m-1">Azure Functions</span>
-                <span class="badge bg-secondary m-1">Azure DevOps (Pipelines)</span>
-                <span class="badge bg-primary m-1">Terraform</span>
-                <span class="badge bg-secondary m-1">Docker</span>
-                <span class="badge bg-primary m-1">Kubernetes</span>
-                <span class="badge bg-secondary m-1">CI/CD</span>
-                <span class="badge bg-primary m-1">GitHub</span>
-                <span class="badge bg-secondary m-1">GitHub Actions</span>
-                <span class="badge bg-primary m-1">Bitbucket</span>
-                <span class="badge bg-secondary m-1">MassTransit</span>
-                <span class="badge bg-primary m-1">RabbitMQ</span>
-                <span class="badge bg-secondary m-1">Azure Service Bus</span>
-                <span class="badge bg-primary m-1">GitLab</span>
-                <span class="badge bg-secondary m-1">Ansible</span>
-              </td>
-            </tr>
-
-            <!-- Programming Languages -->
-            <tr>
-              <td class="align-middle"><strong>Programming Languages:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">C#</span>
-                <span class="badge bg-secondary m-1">Python</span>
-                <span class="badge bg-primary m-1">Java</span>
-                <span class="badge bg-secondary m-1">C++</span>
-                <span class="badge bg-primary m-1">VB.NET</span>
-                <span class="badge bg-secondary m-1">PHP</span>
-                <span class="badge bg-primary m-1">JavaScript</span>
-                <span class="badge bg-secondary m-1">TypeScript</span>
-                <span class="badge bg-primary m-1">HTML</span>
-                <span class="badge bg-secondary m-1">CSS</span>
-                <span class="badge bg-primary m-1">SCSS</span>
-                <span class="badge bg-secondary m-1">LUA</span>
-                <span class="badge bg-primary m-1">XML</span>
-                <span class="badge bg-secondary m-1">JSON</span>
-                <span class="badge bg-primary m-1">LINQ</span>
-                <span class="badge bg-secondary m-1">VBScript</span>
-                <span class="badge bg-primary m-1">Powershell</span>
-                <span class="badge bg-secondary m-1">Batch</span>
-                <span class="badge bg-secondary m-1">Bash</span>
-              </td>
-            </tr>
-
-            <!-- Backend & API Development -->
-            <tr>
-              <td class="align-middle"><strong>Backend & API Development:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">.NET Core</span>
-                <span class="badge bg-secondary m-1">.NET Framework</span>
-                <span class="badge bg-primary m-1">ASP.NET MVC</span>
-                <span class="badge bg-secondary m-1">ASP.NET Core</span>
-                <span class="badge bg-primary m-1">Blazor Server</span>
-                <span class="badge bg-secondary m-1">Blazor WASM</span>
-                <span class="badge bg-primary m-1">GraphQL</span>
-                <span class="badge bg-secondary m-1">RESTful API</span>
-                <span class="badge bg-primary m-1">gRPC</span>
-                <span class="badge bg-secondary m-1">SignalR</span>
-                <span class="badge bg-primary m-1">CQRS</span>
-                <span class="badge bg-secondary m-1">MediatR</span>
-                <span class="badge bg-primary m-1">React</span>
-                <span class="badge bg-secondary m-1">Angular</span>
-                <span class="badge bg-primary m-1">Vue.js</span>
-                <span class="badge bg-secondary m-1">Next.js</span>
-                <span class="badge bg-primary m-1">Alpine.js</span>
-                <span class="badge bg-secondary m-1">JQuery</span>
-                <span class="badge bg-primary m-1">Bootstrap</span>
-                <span class="badge bg-secondary m-1">.NET MAUI</span>
-                <span class="badge bg-primary m-1">SOAP API</span>
-                <span class="badge bg-secondary m-1">WebSocket API</span>
-                <span class="badge bg-primary m-1">Server-Sent Events API</span>
-                <span class="badge bg-secondary m-1">IoT API</span>
-                <span class="badge bg-primary m-1">FastAPI</span>
-                <span class="badge bg-secondary m-1">OData</span>
-              </td>
-            </tr>
-
-            <!-- Databases & Storage -->
-            <tr>
-              <td class="align-middle"><strong>Databases & Storage:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">Microsoft SQL Server</span>
-                <span class="badge bg-secondary m-1">MySQL</span>
-                <span class="badge bg-primary m-1">PostgreSQL</span>
-                <span class="badge bg-secondary m-1">SQLite</span>
-                <span class="badge bg-primary m-1">Timescale</span>
-                <span class="badge bg-secondary m-1">Cosmos DB</span>
-                <span class="badge bg-primary m-1">InfluxDB</span>
-                <span class="badge bg-secondary m-1">Redis</span>
-                <span class="badge bg-primary m-1">Microsoft Access</span>
-                <span class="badge bg-secondary m-1">NoSQL</span>
-                <span class="badge bg-primary m-1">Entity Framework 6</span>
-                <span class="badge bg-secondary m-1">EF Core</span>
-                <span class="badge bg-primary m-1">LINQ-to-SQL</span>
-                <span class="badge bg-secondary m-1">Apache Cassandra</span>
-                <span class="badge bg-primary m-1">Snowflake</span>
-                <span class="badge bg-secondary m-1">Dapper</span>
-              </td>
-            </tr>
-
-            <!-- Networking & Security -->
-            <tr>
-              <td class="align-middle"><strong>Networking & Security:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-secondary m-1">Auth0</span>
-                <span class="badge bg-primary m-1">OAuth 2.0</span>
-                <span class="badge bg-secondary m-1">JWT</span>
-                <span class="badge bg-primary m-1">OWASP</span>
-                <span class="badge bg-secondary m-1">SSL/TLS</span>
-                <span class="badge bg-primary m-1">VPN</span>
-                <span class="badge bg-secondary m-1">TCP/IP</span>
-                <span class="badge bg-primary m-1">WireShark</span>
-                <span class="badge bg-secondary m-1">DHCP</span>
-                <span class="badge bg-primary m-1">DNS</span>
-                <span class="badge bg-secondary m-1">LDAP</span>
-                <span class="badge bg-primary m-1">WMI</span>
-                <span class="badge bg-secondary m-1">MTConnect</span>
-                <span class="badge bg-primary m-1">OPC UA</span>
-                <span class="badge bg-secondary m-1">MQTT</span>
-                <span class="badge bg-primary m-1">NATS.io</span>
-                <span class="badge bg-secondary m-1">RabbitMQ</span>
-                <span class="badge bg-primary m-1">Kafka</span>
-                <span class="badge bg-secondary m-1">Zero Trust Architecture</span>
-              </td>
-            </tr>
-
-            <!-- Testing & Quality Assurance -->
-            <tr>
-              <td class="align-middle"><strong>Testing & Quality Assurance:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">Unit Testing (xUnit, NUnit, MSTest)</span>
-                <span class="badge bg-secondary m-1">Integration Testing</span>
-                <span class="badge bg-secondary m-1">Mutation Testing</span>
-                <span class="badge bg-primary m-1">Load & Performance Testing</span>
-                <span class="badge bg-secondary m-1">End-to-End Testing (Selenium)</span>
-                <span class="badge bg-primary m-1">Fuzz Testing</span>
-                <span class="badge bg-secondary m-1">Security Testing (OWASP ZAP)</span>
-              </td>
-            </tr>
-
-            <!-- Tools & Productivity -->
-            <tr>
-              <td class="align-middle"><strong>Tools & Productivity:</strong></td>
-              <td class="align-middle">
-                <span class="badge bg-primary m-1">Visual Studio</span>
-                <span class="badge bg-secondary m-1">VS Code</span>
-                <span class="badge bg-primary m-1">Rider</span>
-                <span class="badge bg-secondary m-1">IntelliJ IDEA</span>
-                <span class="badge bg-primary m-1">Eclipse</span>
-                <span class="badge bg-secondary m-1">Postman</span>
-                <span class="badge bg-primary m-1">Swagger</span>
-                <span class="badge bg-secondary m-1">Fiddler</span>
-                <span class="badge bg-primary m-1">SSMS</span>
-                <span class="badge bg-secondary m-1">MySQL Workbench</span>
-                <span class="badge bg-primary m-1">pgAdmin</span>
-                <span class="badge bg-secondary m-1">Notion</span>
-                <span class="badge bg-primary m-1">Confluence</span>
-                <span class="badge bg-secondary m-1">Jira</span>
-                <span class="badge bg-primary m-1">Trello</span>
-                <span class="badge bg-secondary m-1">Jira</span>
-                <span class="badge bg-primary m-1">Slack</span>
-                <span class="badge bg-secondary m-1">Bootstrap Studio</span>
-                <span class="badge bg-primary m-1">Lucidchart</span>
-                <span class="badge bg-secondary m-1">draw.io</span>
-                <span class="badge bg-primary m-1">Microsoft Visio</span>
-                <span class="badge bg-secondary m-1">PlantUML</span>
-                <span class="badge bg-primary m-1">ReSharper</span>
-                <span class="badge bg-secondary m-1">Azure Monitor</span>
-                <span class="badge bg-primary m-1">Site 24/7</span>
-                <span class="badge bg-secondary m-1">Putty</span>
-                <span class="badge bg-primary m-1">Sourcetree</span>
-                <span class="badge bg-secondary m-1">Godot</span>
-              </td>
-            </tr>
+                      <span class="@badge">@cs.Name</span>
+                    }
+                  }
+                </td>
+              </tr>
+            }
           </tbody>
         </table>
       </div>
