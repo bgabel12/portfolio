@@ -13,6 +13,14 @@
     {
       "library": "devicon@2.16.0",
       "destination": "wwwroot/lib/devicon/"
+    },
+    {
+      "library": "boxicons@2.1.4",
+      "destination": "wwwroot/lib/boxicons/"
+    },
+    {
+      "library": "iconoir@7.10.0",
+      "destination": "wwwroot/lib/iconoir/"
     }
   ]
 }

@@ -9,24 +9,35 @@
   <h1 class="display-4"><span class="text-success">Icons</span></h1>
 </div>
 
-<div class="row mb-4 text-center">
-  <div class="col text-end">
+<div class="row mb-4">
+  <div class="col text-center">
     <button class="btn btn-outline-success border-0" @onclick='@(() => GetIcons("di"))'>
       <div class="devicon-devicon-plain colored d-inline"></div> Devicon
     </button>
   </div>
-  <div class="col">
+  <div class="col text-center">
     <button class="btn btn-outline-warning border-0" @onclick='@(() => GetIcons("fa"))'>
       <div class="fas fa-font-awesome d-inline"></div> Font-Awesome
     </button>
   </div>
-  <div class="col text-start">
+  <div class="col text-center">
     <button class="btn btn-outline-primary border-0" @onclick='@(() => GetIcons("bi"))'>
       <div class="bi bi-bootstrap-fill d-inline"></div> Bootstrap
     </button>
   </div>
+  <div class="col text-center">
+    <button class="btn btn-outline-danger border-0" @onclick='@(() => GetIcons("bx"))'>
+      <div class="bx bxs-cube d-inline"></div> Boxicons
+    </button>
+  </div>
+  <div class="col text-center">
+    <button class="btn btn-outline-secondary border-0" @onclick='@(() => GetIcons("iconoir"))'>
+      <div class="d-flex align-items-middle justify-content-center">
+        <div class="col"><div class="iconoir-iconoir mt-1 me-1"></div></div>
+        <div class="col">Iconoir</div>
+      </div>
+    </button>
+  </div>
 </div>
 
-<div id="diContainer" class="iconContainer"></div>
-<div id="faContainer" class="iconContainer"></div>
-<div id="biContainer" class="iconContainer"></div>
+<div id="iconsDiv" class="iconContainer"></div>

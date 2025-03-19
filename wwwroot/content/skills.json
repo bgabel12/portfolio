@@ -78,6 +78,7 @@
   { "Category": "Backend & API Development", "Name": "IoT API" },
   { "Category": "Backend & API Development", "Name": "FastAPI" },
   { "Category": "Backend & API Development", "Name": "OData" },
+  { "Category": "Backend & API Development", "Name": "Dapr" },
 
   { "Category": "Databases & Storage", "Name": "Microsoft SQL Server" },
   { "Category": "Databases & Storage", "Name": "MySQL" },
@@ -150,5 +151,8 @@
   { "Category": "Tools & Productivity", "Name": "Azure Monitor" },
   { "Category": "Tools & Productivity", "Name": "Putty" },
   { "Category": "Tools & Productivity", "Name": "Sourcetree" },
-  { "Category": "Tools & Productivity", "Name": "Godot" }
+  { "Category": "Tools & Productivity", "Name": "Godot" },
+  { "Category": "Tools & Productivity", "Name": "DevExpress" },
+  { "Category": "Tools & Productivity", "Name": "Telerik Kendo UI" }
+
 ]

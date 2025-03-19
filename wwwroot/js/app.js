@@ -35,17 +35,26 @@ function showImageModal() {
 }
 
 // Methods for Icons page.
+// TODO: Clean up these methods
 function extractClasses(lib) {
   const deviconClassRegex = /\.devicon-([a-z0-9-]+)-plain/g;
   const fontawesomeClassRegex = /\.fa-([a-z0-9-]+)/g;
   const bootstrapClassRegex = /\.bi-([a-z0-9-]+)/g;
+  const boxiconsClassRegex = /\.bxs-([a-z0-9-]+)/g;
+  const iconoirClassRegex = /\.iconoir-([a-z0-9-]+)/g;
 
-  var rx = deviconClassRegex;
+  var rx = deviconClassRegex; // devicon
   if (lib == 'fa') {
-    rx = fontawesomeClassRegex;
+    rx = fontawesomeClassRegex; // fontawesome
   }
   else if (lib == 'bi') {
-    rx = bootstrapClassRegex;
+    rx = bootstrapClassRegex; // bootstrap
+  }
+  else if (lib == 'bx') {
+    rx = boxiconsClassRegex; // boxicons
+  }
+  else if (lib == 'iconoir') {
+    rx = iconoirClassRegex; // iconoir
   }
 
   // Iterate through all stylesheets
@@ -65,25 +74,32 @@ function extractClasses(lib) {
 }
 
 function displayIcons(lib) {
-  document.getElementById("diContainer").innerHTML = "";
-  document.getElementById("faContainer").innerHTML = "";
-  document.getElementById("biContainer").innerHTML = "";
-  var containerName = lib + "Container";
-
-  const container = document.getElementById(containerName);
+  const container = document.getElementById("iconsDiv");
+  container.innerHTML = "";
   const iconClasses = extractClasses(lib);
   iconClasses.forEach(iconClass => {
     const iconBox = document.createElement("div");
     iconBox.classList.add("icon-box");
     iconBox.classList.add("text-bg-light");
+    //iconBox.classList.add("d-flex");
+    //iconBox.classList.add("align-items-center");
+    //iconBox.classList.add("justify-content-center");
 
     const iconElement = document.createElement("i");
-    var cn = iconClass + " colored"; // fs-1
+    var cn = iconClass + " colored"; // devicon
     if (lib == "fa") {
-      cn = "fas " + iconClass + ""; // fs-1
+      cn = "fas " + iconClass + ""; // fontawesome
     }
     else if (lib == "bi") {
-      cn = "bi " + iconClass + ""; // fs-1
+      cn = "bi " + iconClass + ""; // bootstrap
+    }
+    else if (lib == "bx") {
+      cn = "bx " + iconClass + ""; // boxicons
+    }
+    else if (lib == "iconoir") {
+      cn = "" + iconClass + ""; // iconoir
+      iconElement.style.maxWidth = "38px";
+      iconElement.style.marginLeft = "30px";
     }
     iconElement.className = cn;
 
@@ -93,7 +109,7 @@ function displayIcons(lib) {
 
     const nameElement = document.createElement("div");
     nameElement.classList.add("icon-name");
-    nameElement.textContent = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "");
+    nameElement.textContent = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace("bxs-", "").replace("iconoir-", "");
 
     iconBox.appendChild(iconElement);
     iconBox.appendChild(nameElement);
