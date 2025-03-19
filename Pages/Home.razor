@@ -490,7 +490,7 @@
                 <td class="align-middle"><strong>@category</strong></td>
                 <td class="align-middle">
                   @{
-                    var catSkills = Skills.Where(x => x.Category == category);
+                    var catSkills = Skills.Where(x => x.Category == category).OrderBy(o => o.Name);
                     var primaryBadge = "badge bg-primary m-1";
                     var secondaryBadge = "badge bg-secondary m-1";
                     var badge = string.Empty;

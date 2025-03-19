@@ -1,8 +1,6 @@
 ﻿// Home.razor.cs
 using Microsoft.JSInterop;
-using System.Collections.Generic;
 using System.Net.Http.Json;
-using static System.Net.WebRequestMethods;
 
 namespace BlazorWasmPortfolio.Pages
 {
@@ -11,7 +9,7 @@ namespace BlazorWasmPortfolio.Pages
     private List<string> SkillCategories = [];
     private List<Skill> Skills = [];
     public string ImageTitle = string.Empty;
-    public string ImageFileName = string.Empty;
+    public string ImageFileName = "player_manager.png";
     
     protected override async Task OnInitializedAsync()
     {
