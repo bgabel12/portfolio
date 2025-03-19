@@ -13,7 +13,7 @@
         <div class="col">
           <div class="card border-primary shadow-sm">
             <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-cubes"></i> @showCaseCategory</h5>
+              <h5 class="card-title"><u>@showCaseCategory</u></h5>
               <p class="card-text">
                 @foreach (var showCaseSkill in skillList)
                 {
@@ -31,7 +31,7 @@
 </section>
 
 <!-- Toggle Button -->
-<div class="mb-2 d-print-none text-center @(DisplayAllSkills && AllSkillsButton ? "" : "d-none")">
+<div class="mt-2 mb-2 d-print-none text-center @(DisplayAllSkills && AllSkillsButton ? "" : "d-none")">
   <button class="btn btn-warning btn-sm" data-bs-toggle="collapse" data-bs-target="#all-skills">
     <i class="fas fa-list"></i> View All Skills
   </button>
@@ -52,7 +52,8 @@
                 var catSkills = Skills.Where(x => x.Category == category).OrderBy(o => o.Name);
                 foreach (var cs in catSkills)
                 {
-                  <span class="badge bg-secondary m-1">@cs.Name</span>
+                  var badge = cs.ShowCase ? "badge bg-primary m-1" : "badge bg-secondary m-1";
+                  <span class="@badge">@cs.Name</span>
                 }
               }
             </td>
