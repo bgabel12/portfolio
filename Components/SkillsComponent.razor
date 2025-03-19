@@ -1,0 +1,64 @@
+﻿@inject IJSRuntime jsRuntime
+@inject HttpClient http
+
+<!-- Show Case Skills -->
+<section id="showcase-skills" class='@(@DisplayShowCaseSkills ? "" : "d-none")'>
+  <div class="d-print-none container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+      @foreach(var showCaseCategory in ShowCaseCategories)
+      {
+        var skillList = ShowCaseSkills.Where(x => x.Category == showCaseCategory).ToList() ?? [];
+        if (skillList.Count == 0) continue;
+
+        <div class="col">
+          <div class="card border-primary shadow-sm">
+            <div class="card-body text-center">
+              <h5 class="card-title"><i class="fas fa-cubes"></i> @showCaseCategory</h5>
+              <p class="card-text">
+                @foreach (var showCaseSkill in skillList)
+                {
+                  <div class="me-2 d-inline white-space-no-wrap">
+                    <i class="@showCaseSkill.ShowCaseIconCssClass"></i> @showCaseSkill.Name
+                  </div>
+                }
+              </p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Toggle Button -->
+<div class="mb-2 d-print-none text-center @(DisplayAllSkills && AllSkillsButton ? "" : "d-none")">
+  <button class="btn btn-warning btn-sm" data-bs-toggle="collapse" data-bs-target="#all-skills">
+    <i class="fas fa-list"></i> View All Skills
+  </button>
+</div>
+
+<!-- All Skills -->
+<section id="all-skills" class="@(DisplayAllSkills ? (AllSkillsButton ? "collapse" : "") : "d-none")">
+
+  <div class="container">
+    <table class="border-secondary-subtle table">
+      <tbody>
+        @foreach (var category in SkillCategories)
+        {
+          <tr>
+            <td class="align-middle"><strong>@category</strong></td>
+            <td class="align-middle">
+              @{
+                var catSkills = Skills.Where(x => x.Category == category).OrderBy(o => o.Name);
+                foreach (var cs in catSkills)
+                {
+                  <span class="badge bg-secondary m-1">@cs.Name</span>
+                }
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

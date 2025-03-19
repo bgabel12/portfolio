@@ -354,167 +354,10 @@
     </div>
   </section>
 
-  <section id="test" class="mb-5">
-    
-  </section>
-
-  <!-- Short Skills Section -->
-  <section id="short-skills" class="mb-5">
-    <h2 class="text-center"><i class="fas fa-tools"></i> Skills</h2>
-    <div class="d-print-none container">
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-
-        <!-- Software Architecture -->
-        <div class="col">
-          <div class="card border-primary shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-cubes"></i> Software Architecture</h5>
-              <p class="card-text">
-                <i class="fas fa-network-wired"></i> Microservices
-                <i class="fas fa-exchange-alt"></i> Event-Driven
-                <i class="bi bi-envelope-check-fill"></i> Message Queues
-                <i class="fas fa-sync-alt"></i> ETL/ELT
-                <i class="fas fa-layer-group"></i> DDD
-                <i class="fas fa-layer-group"></i> Clean Architecture
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cloud & DevOps -->
-        <div class="col">
-          <div class="card border-secondary shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-cloud"></i> Cloud & DevOps</h5>
-              <p class="card-text">
-                <i class="devicon-azure-plain colored"></i> Azure
-                <i class="devicon-amazonwebservices-line colored"></i> AWS
-                <i class="devicon-googlecloud-plain colored"></i> GCP
-                <i class="devicon-digitalocean-plain colored"></i> Digital Ocean
-                <i class="devicon-docker-plain colored"></i> Docker
-                <i class="devicon-kubernetes-plain colored"></i> Kubernetes
-                <i class="devicon-github-original colored"></i> GitHub
-                <i class="devicon-terraform-plain colored"></i> Terraform
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Programming Languages -->
-        <div class="col">
-          <div class="card border-danger shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-code"></i> Programming Languages</h5>
-              <p class="card-text">
-                <i class="devicon-csharp-plain colored"></i> C#
-                <i class="devicon-javascript-plain colored"></i> JavaScript
-                <i class="devicon-typescript-plain colored"></i> TypeScript
-                <i class="devicon-css3-plain colored"></i> CSS
-                <i class="devicon-python-plain colored"></i> Python
-                <i class="devicon-lua-plain colored"></i> Lua
-                <i class="devicon-json-plain colored"></i> JSON
-                <i class="devicon-yaml-plain colored"></i> YAML
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Backend & API Development -->
-        <div class="col">
-          <div class="card border-warning shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-server"></i> Backend & API</h5>
-              <p class="card-text">
-                <i class="devicon-dotnetcore-plain colored"></i> .NET Core
-                <i class="devicon-angularjs-plain colored"></i> Angular
-                <i class="devicon-graphql-plain colored"></i> GraphQL
-                <i class="devicon-blazor-plain colored"></i> Blazor
-                <i class="devicon-react-plain colored"></i> React
-                <i class="devicon-tailwindcss-plain colored"></i> TailwindCSS
-                <i class="devicon-nodejs-plain colored"></i> NodeJS
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Databases & Storage -->
-        <div class="col">
-          <div class="card border-info shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-database"></i> Databases</h5>
-              <p class="card-text">
-                <i class="devicon-microsoftsqlserver-plain colored"></i> SQL Server 
-                <i class="devicon-postgresql-plain colored"></i> PostgreSQL 
-                <i class="devicon-mysql-plain colored"></i> MySQL 
-                <i class="devicon-redis-plain colored"></i> Redis
-                <i class="devicon-cosmosdb-plain colored"></i> CosmosDB
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Networking & Security -->
-        <div class="col">
-          <div class="card border-success shadow-sm">
-            <div class="card-body text-center">
-              <h5 class="card-title"><i class="fas fa-lock"></i> Security & Networking</h5>
-              <p class="card-text">
-                <i class="devicon-oauth-plain colored"></i> OAuth2
-                <i class="bi bi-shield-shaded"></i> OWASP
-                <i class="devicon-rabbitmq-plain colored"></i> RabbitMQ
-                <i class="devicon-apachekafka-plain colored"></i> Kafka
-                <i class="devicon-socketio-plain colored"></i> Socket.IO
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Toggle Button -->
-    <div class="mt-4 d-print-none text-center">
-      <button class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#skills">
-        <i class="fas fa-list"></i> View All Skills
-      </button>
-    </div>
-
-    <!-- All Skills -->
-    <div id="skills" class="mt-4 mb-5 collapse">
-      <div class="container">
-        <table class="border-secondary-subtle table">
-          <tbody>
-            @foreach (var category in SkillCategories)
-            {
-              <tr>
-                <td class="align-middle"><strong>@category</strong></td>
-                <td class="align-middle">
-                  @{
-                    var catSkills = Skills.Where(x => x.Category == category).OrderBy(o => o.Name);
-                    var primaryBadge = "badge bg-primary m-1";
-                    var secondaryBadge = "badge bg-secondary m-1";
-                    var badge = string.Empty;
-                    foreach (var cs in catSkills)
-                    {
-                      if (badge == primaryBadge)
-                        badge = secondaryBadge;
-                      else
-                        badge = primaryBadge;
-
-                      <span class="@badge">@cs.Name</span>
-                    }
-                  }
-                </td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+  <SkillsComponent DisplayShowCaseSkills="true" DisplayAllSkills="true" AllSkillsButton="true"></SkillsComponent>
 
   <!-- Favorite Podcasts Section -->
-  <section id="podcasts" class="d-print-none mb-5">
+  <section id="podcasts" class="d-print-none mt-5 mb-5">
     <h2 class="text-center"><i class="fas fa-podcast"></i> My Favorite Podcasts</h2>
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -537,14 +380,14 @@
 
         <!-- .NET Rocks! -->
         <div class="col">
-          <div class="card border-warning h-100 shadow-sm">
+          <div class="card border-secondary h-100 shadow-sm">
             <div class="card-body text-center">
               <h5 class="card-title"><i class="fab fa-microsoft"></i> .NET Rocks!</h5>
               <p class="card-text">
                 A must-listen for .NET developers! Covering topics from cloud computing to DevOps,
                 this long-running podcast features insightful discussions with industry leaders.
               </p>
-              <a href="https://www.dotnetrocks.com/" class="btn btn-sm btn-warning" target="_blank">
+              <a href="https://www.dotnetrocks.com/" class="btn btn-sm btn-secondary" target="_blank">
                 <i class="fas fa-microphone-alt"></i> Listen Now
               </a>
             </div>

@@ -5,6 +5,6 @@
     public string Category { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
     public bool ShowCase { get; set; } = false;
-    public string ShowCaseIcon { get; set; } = "fa-solid fa-check-to-slot";
+    public string ShowCaseIconCssClass { get; set; } = "fa-solid fa-check-to-slot";
   }
 }
