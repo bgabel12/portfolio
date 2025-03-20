@@ -35,7 +35,7 @@ function showImageModal() {
 }
 
 // Methods for Icons page.
-// TODO: Clean up these methods
+// TODO: CLEAN UP THESE METHODS
 function extractClasses(lib) {
   const deviconClassRegex = /\.devicon-([a-z0-9-]+)-plain/g;
   const fontawesomeClassRegex = /\.fa-([a-z0-9-]+)/g;
@@ -109,7 +109,7 @@ function displayIcons(lib) {
 
     const nameElement = document.createElement("div");
     nameElement.classList.add("icon-name");
-    nameElement.textContent = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace("bxs-", "").replace("iconoir-", "");
+    nameElement.textContent = iconClass.replace("devicon-", "").replace(" colored", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace("bxs-", "").replace("iconoir-", "");
 
     iconBox.appendChild(iconElement);
     iconBox.appendChild(nameElement);
