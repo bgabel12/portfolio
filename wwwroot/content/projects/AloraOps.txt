@@ -1,0 +1,108 @@
+﻿<div class="d-print-none container text-center">
+  <figure>
+    <img src="images/aloraops-demo.gif" alt="AloraOps - Operator Module" class="img-fluid shadow-lg" style="max-width: 400px;cursor: pointer;"
+         @onclick="@(() => OnImageClick(" AloraOps - Operator Module", "/aloraops-demo.gif" ))" />
+    <figcaption class="mt-2 text-muted">AloraOps - Operator Module</figcaption>
+  </figure>
+</div>
+
+<h5 class="mt-4">Overview</h5>
+<p>AloraOps is a robust, cloud-enabled application designed to streamline manufacturing operations by integrating real-time machine data with an ERP system. The application consists of two primary modules: an <strong>Operator Module</strong> for shop-floor employees and a <strong>Manager Module</strong> for supervisors. These modules facilitate job tracking, employee time management, downtime reporting, quality control, and machine monitoring, ensuring seamless data flow between shop-floor activities and enterprise resource planning.</p>
+
+<h5 class="mt-4">Operator Module</h5>
+<ul class="mb-2">
+  <li>Employee <strong>Clock-In & Clock-Out</strong> with real-time tracking.</li>
+  <li><strong>Job and Machine Association</strong> to link active work orders to <strong>machine utilization</strong>.</li>
+  <li><strong>Downtime Management</strong>, allowing operators to report and categorize production halts.</li>
+  <li><strong>Job Timer Tracking</strong> to accurately log work hours for each task.</li>
+  <li><strong>Parts & Scrap Submission</strong>, including a <strong>quality control approval workflow</strong>.</li>
+  <li><strong>Job Notes & Annotations</strong>, enabling operators to document process insights.</li>
+</ul>
+
+<h5 class="mt-4">Manager Module</h5>
+<ul class="mb-2">
+  <li>Live Machine Monitoring with job progress and downtime alerts.</li>
+  <li>Downtime Application & Approval for system-wide accuracy.</li>
+  <li>Kiosk Management, assigning operator stations to machines.</li>
+  <li>Quality Control & Part Approval before data syncs to the ERP.</li>
+  <li>Comprehensive Job Tracking with status updates, progress bars, and historical data.</li>
+</ul>
+
+<h5 class="mt-4">Technical Architecture</h5>
+            To ensure reliability and scalability, AloraOps leverages modern cloud-based and on-premise integrations:
+<ul>
+  <li>
+    <strong>Frontend:</strong>
+    <ul>
+      <li>Built using Blazor WebAssembly (WASM) for an interactive, responsive user experience.</li>
+      <li>Deployed as an Azure Static Web App for high availability.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Backend & APIs:</strong>
+    <ul>
+      <li>.NET Core (C#) for API development.</li>
+      <li>Azure Functions (REST API) for retrieving ERP and machine data.</li>
+      <li>Durable Functions Orchestration to manage transactional workflows efficiently.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>ERP & Machine Data Integration:</strong>
+    <ul>
+      <li>Data Collection Gateway (On-Prem REST API) for receiving, transforming, and submitting AloraOps transactions to the ERP.</li>
+      <li>Azure Hybrid Connection for secure, low-latency connectivity between cloud services and on-prem ERP systems.</li>
+    </ul>
+  </li>
+
+  <li>
+    <strong>Security & Deployment:</strong>
+    <ul>
+      <li>Auth0 for authentication and access control.</li>
+      <li>Azure DevOps Pipelines (CI/CD) for automated build and deployment.</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 class="mt-4">Project Contribution</h5>
+<p>I designed and developed AloraOps from the ground up.</p>
+<ul>
+  <li><strong>Frontend Development:</strong> Created the Blazor WebAssembly (WASM) UI for operators and managers, ensuring a responsive and intuitive experience.</li>
+  <li><strong>Backend API Development:</strong> Built .NET Core REST APIs using Azure Functions and Durable Functions Orchestration to handle transactions efficiently.</li>
+  <li><strong>Data Collection Gateway:</strong> Developed the on-prem REST API for receiving, transforming, and submitting AloraOps transactions to the ERP system.</li>
+  <li><strong>Security & Authentication:</strong> Integrated Auth0 for secure user authentication and role-based access control.</li>
+  <li><strong>CI/CD & Deployment:</strong> Configured Azure DevOps Pipelines to automate builds, testing, and deployment.</li>
+</ul>
+
+<p>The AloraOps project significantly improved operational efficiency by automating job tracking, downtime reporting, and real-time machine monitoring, seamlessly syncing data with the ERP system.</p>
+<div class="row mb-5">
+  <div class="col col-sm-12 col-md-3">
+    <figure>
+      <img src="images/operator_jobs.png" class="img-fluid rounded shadow" alt="Operator Job Screen"
+           @onclick="@(() => OnImageClick(" Operator Module - Jobs", "/operator_jobs.png" ))" style="cursor: pointer;" />
+      <figcaption class="mt-2 text-muted"></figcaption>
+    </figure>
+  </div>
+  <div class="col col-sm-12 col-md-3">
+    <figure>
+      <img src="images/manager_machines.png" class="img-fluid rounded shadow" alt="Manager Machines Screen"
+           @onclick="@(() => OnImageClick(" Manager Module - Machines", "/manager_machines.png" ))" style="cursor: pointer;" />
+      <figcaption class="mt-2 text-muted"></figcaption>
+    </figure>
+  </div>
+  <div class="col col-sm-12 col-md-3">
+    <figure>
+      <img src="images/manager_jobs.png" class="img-fluid rounded shadow" alt="Manager Jobs Screen"
+           @onclick="@(() => OnImageClick(" Manager Module - Jobs", "/manager_jobs.png" ))" style="cursor: pointer;" />
+      <figcaption class="mt-2 text-muted"></figcaption>
+    </figure>
+  </div>
+  <div class="col col-sm-12 col-md-3">
+    <figure>
+      <img src="images/manager_activities.png" class="img-fluid rounded shadow" alt="Manager Activities Screen"
+           @onclick="@(() => OnImageClick(" Manager Module - Activities", "/manager_activities.png" ))" style="cursor: pointer;" />
+      <figcaption class="mt-2 text-muted"></figcaption>
+    </figure>
+  </div>
+</div>

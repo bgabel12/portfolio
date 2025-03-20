@@ -1,1 +1,10 @@
-﻿
+﻿::deep .icon-box {
+  font-size: small;
+  text-align: center;
+  padding: 2px;
+  transition: transform 0.2s ease-in-out;
+}
+
+  ::deep .icon-box:hover {
+    transform: scale(2);
+  }

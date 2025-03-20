@@ -34,6 +34,11 @@ function showImageModal() {
   modal.show(); 
 }
 
+function setInnerHtml(id, html) {
+  let container = document.getElementById(id);
+  container.innerHTML = html;
+}
+
 // Methods for Icons page.
 // TODO: CLEAN UP THESE METHODS
 function extractClasses(lib) {

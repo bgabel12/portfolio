@@ -1,0 +1,47 @@
+﻿<p>
+  At the time, the existing third-party solution for machine data collection was costly, outdated, and inefficient.
+  Customers faced long wait times for implementation due to the vendor’s limited installation team,
+  delaying access to critical operational data. The reliance on proprietary hardware and software
+  further increased costs and restricted flexibility.
+</p>
+
+<p>
+  To address these challenges, I developed <strong>Alora Edge</strong>, a robust and scalable
+  <strong>edge service</strong> designed to collect, standardize, and store machine data using
+  widely adopted industrial protocols. This solution enabled manufacturers to streamline
+  data acquisition, reduce costs, and eliminate long lead times associated with third-party installations.
+</p>
+
+<h5 class="mt-4">Key Features</h5>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <strong>Windows Service for Data Collection:</strong> Built using
+    <strong>C# and .NET Core</strong>, the service connects to machines and devices
+    through <strong>MTConnect, OPC UA, MQTT</strong>, and other protocols,
+    ensuring compatibility with a wide range of industrial equipment.
+  </li>
+  <li class="list-group-item">
+    <strong>Blazor-Based Management Interface:</strong> Developed a
+    <strong>Blazor application</strong> to provide an intuitive interface
+    for configuring machine connectivity, managing data collection settings,
+    and selecting relevant data points. A <strong>SQLite database</strong>
+    was used to store configurations for both the service and the management application.
+  </li>
+  <li class="list-group-item">
+    <strong>Custom Installer for Deployment:</strong> Created a
+    <strong>WiX Toolset-based installer</strong>, simplifying the deployment process
+    for customers and technical support teams. This eliminated the need for manual setup,
+    reducing installation complexity and ensuring a seamless experience.
+  </li>
+</ul>
+
+<h5 class="mt-4">Impact</h5>
+<p>
+  By implementing <strong>Alora Edge</strong>, manufacturers gained a
+  <strong>cost-effective, flexible, and self-managed</strong> data collection system.
+  The solution reduced reliance on third-party vendors, allowing for
+  <strong>faster deployment, improved data accessibility, and long-term cost savings</strong>.
+  The use of <strong>widely supported industrial protocols</strong> ensured seamless integration
+  with existing infrastructure, enabling organizations to make real-time, data-driven
+  decisions without being locked into proprietary ecosystems.
+</p>

@@ -1,3 +1,41 @@
-﻿<div>
+﻿@inject HttpClient http
+@inject IJSRuntime jsRuntime
 
-</div>
+<section id="projects" class="mb-5">
+  <div class="container">
+    <h2 class="mb-4 text-center"><i class="fa-solid fa-diagram-project"></i> Projects</h2>
+    <div class="accordion" id="projectsPanels">
+      @{
+        int cnt = 0;
+        foreach (var project in Projects)
+        {
+          var id = "projectAccordion" + cnt++;
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fs-4" type="button" data-bs-toggle="collapse" data-bs-target="#@id" aria-expanded="false" aria-controls="@id">
+                <div class="d-flex flex-column flex-md-row align-items-center text-md-start text-center">
+                  <div class="me-md-2 mb-2 mb-md-0">
+                    <i class="@project.IconCssClass me-3"></i> @project.Name - @project.Description
+                  </div>
+
+                  @foreach(var tech in project.Technologies)
+                  {
+                    <div class="d-flex justify-content-between justify-content-md-between flex-wrap">
+                      <div class="icon-box me-2 text-center">
+                        <i class="@tech.IconCssClass" title="@tech.Name"></i>
+                        <div style="font-size: xx-small;">@tech.Name</div>
+                      </div>
+                    </div>
+                  }
+                </div>
+              </button>
+            </h2>
+            <div id="@id" class="accordion-collapse collapse">
+              <div id='@(id + "body")' class="accordion-body"></div>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

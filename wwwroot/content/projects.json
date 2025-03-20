@@ -1,0 +1,40 @@
+[
+	{
+	  "name": "AloraOps",
+	  "description": "ERP-Integrated Manufacturing Operations System",
+	  "iconCssClass": "fa-solid fa-helmet-safety",
+	  "technologies": [
+		{ "name": "Azure", "iconCssClass": "devicon-azure-plain colored" },
+		{ "name": "Blazor", "iconCssClass": "devicon-blazor-original colored" },
+		{ "name": "DevOps", "iconCssClass": "devicon-azuredevops-plain colored" },
+		{ "name": "CSharp", "iconCssClass": "devicon-csharp-line colored" },
+		{ "name": ".NET Core", "iconCssClass": "devicon-dotnetcore-plain colored" },
+		{ "name": "OAuth", "iconCssClass": "devicon-oauth-plain" }
+	  ]
+	},
+	{
+	  "name": "AloraEdge",
+	  "description": "A Practical Solution for Industrial Data Collection",
+	  "iconCssClass": "fa-solid fa-circle-nodes",
+	  "technologies": [
+		{ "name": "Blazor", "iconCssClass": "devicon-blazor-original colored" },
+		{ "name": "CSharp", "iconCssClass": "devicon-csharp-line colored" },
+		{ "name": ".NET Core", "iconCssClass": "devicon-dotnetcore-plain colored" },
+		{ "name": "WiX Toolkit", "iconCssClass": "fa-brands fa-wix" },
+		{ "name": "Windows Service", "iconCssClass": "fa-brands fa-windows" }
+	  ]
+	},
+	{
+	  "name": "Player Manager",
+	  "description": "A cloud-based command and control system",
+	  "iconCssClass": "fa-solid fa-magnifying-glass-chart",
+	  "technologies": [
+	    { "name": "Azure", "iconCssClass": "devicon-azure-plain colored" },
+		{ "name": "Blazor", "iconCssClass": "devicon-blazor-original colored" },
+		{ "name": "DevOps", "iconCssClass": "devicon-azuredevops-plain colored" },
+		{ "name": "CSharp", "iconCssClass": "devicon-csharp-line colored" },
+		{ "name": ".NET Core", "iconCssClass": "devicon-dotnetcore-plain colored" },
+		{ "name": "SOA", "iconCssClass": "fa-solid fa-gears" }
+	  ]
+	}
+]

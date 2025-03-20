@@ -1,0 +1,68 @@
+<p>
+  Throughout my career as a Software Engineer, I have designed and implemented multiple solutions that enable seamless communication between distributed systems.
+  One of the most notable projects was my work on the Lojic Dashboards platform(<a href="https://www.youtube.com/@@jobboss4393/search?query=Lojic" class="small" target="_blank">short video</a>) and its integration with enterprise ERP software.
+</p>
+
+<p>
+  <div class="container text-center">
+	<div class="row">
+	  <!-- Image 1 -->
+	  <div class="col-md-6">
+		<img src="images/lojic_dashboards.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards"
+		@onclick='@(() => OnImageClick("Lojic Dashboards", "lojic_dashboards.png"))' style="cursor: pointer;">
+	  </div>
+
+	  <!-- Image 2 -->
+	  <div class="col-md-6">
+		<img src="images/lojic_dashboards_display.png" class="img-fluid rounded shadow-sm" alt="Lojic Dashboards Display"
+		@onclick='@(() => OnImageClick("Lojic Dashboards - Display on Shop Floor", "lojic_dashboards_display.png"))' style="cursor: pointer;">
+	  </div>
+	</div>
+  </div>
+</p>
+
+<p>
+  In this role, I developed and maintained services that facilitated data exchange between the dashboard platform
+  and various ERP systems, ensuring <strong>scalability, reliability, and security</strong>. This involved:
+</p>
+<ul>
+  <li>Designing <strong>REST APIs</strong> for data integration.</li>
+  <li>Handling <strong>real-time data streaming</strong> and <strong>asynchronous processing</strong> using cloud services.</li>
+</ul>
+
+<p>
+  Additionally, I created the Player software, a cross-platform application deployed on
+  Windows and Linux devices, typically installed on <strong>single-board computers</strong> for digital signage purposes.
+  The management layer of this system was hosted in Azure, where I designed a cloud-based command and control system.
+  <div class="my-4 container text-center">
+	<figure>
+	  <figcaption class="mt-2 text-muted">A command and control system for managing devices on the shop floor, primarily used to display real-time dashboards.</figcaption>
+	  <img src="images/player_manager.png" class="img-fluid w-75 d-block mx-auto rounded shadow-lg" alt="Player Manager"
+	  @onclick='@(() => OnImageClick("Player Manager", "player_manager.png"))' style="cursor: pointer;">
+	</figure>
+  </div>
+</p>
+
+This architecture leveraged:
+<ul>
+  <li><strong>Azure Queues & Blob Storage</strong> for asynchronous messaging and configuration management.</li>
+  <li><strong>Microservices</strong> to handle command processing, player status monitoring, and remote updates.</li>
+  <li><strong>Secure API endpoints</strong> for managing device communication and remote control functions.</li>
+</ul>
+
+<p>
+  This system allowed administrators to remotely configure players, send commands (e.g., reboots, content updates),
+  and retrieve device status through a web-based management portal.
+</p>
+
+<p>
+  My experience with <strong>SOA</strong> extends beyond this project, as I have also worked on cloud-native applications using
+  <strong>Azure Function Apps, Durable Functions,</strong> and <strong>microservices architectures</strong> to build scalable and
+  resilient enterprise solutions.
+</p>
+
+<p>
+  By leveraging <strong>SOA principles</strong>, I have successfully designed systems that promote
+  <strong>modularity, interoperability, and maintainability </strong>,
+  ensuring smooth integration between various business applications and cloud services.
+</p>
