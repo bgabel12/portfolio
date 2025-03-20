@@ -28,7 +28,9 @@ namespace BlazorWasmPortfolio.Components
 
     private async Task<string> ReadFile(string fileName)
     {
-      HttpResponseMessage response = await http.GetAsync("/content/projects/" + fileName);
+      var url = NavManager.Uri.ToString();
+      var filePath = !url.Contains("localhost", StringComparison.InvariantCultureIgnoreCase) ? "/portfolio/content/projects/" + fileName : "/content/projects/" + fileName;
+      HttpResponseMessage response = await http.GetAsync(filePath);
       HttpContent content = response.Content;
 
       return await content.ReadAsStringAsync();
