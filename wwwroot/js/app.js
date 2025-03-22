@@ -6,7 +6,7 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  var backToTopButton = document.getElementById("btn-back-to-top");
+  const backToTopButton = document.getElementById("btn-back-to-top");
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     backToTopButton.style.display = "block";
   } else {
@@ -29,9 +29,14 @@ function setTheme(theme) {
   document.documentElement.setAttribute("data-bs-theme", theme);
 }
 
-function showImageModal() {
-  var modal = new bootstrap.Modal(document.getElementById("imageModal"), {});
+function showModal(modalId) {
+  const modal = new bootstrap.Modal(document.getElementById(modalId), {});
   modal.show(); 
+}
+
+function hideModal(modalId) {
+  const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+  modal.hide();
 }
 
 function setInnerHtml(id, html) {
@@ -44,11 +49,11 @@ function setInnerHtml(id, html) {
 function extractClasses(lib) {
   const deviconClassRegex = /\.devicon-([a-z0-9-]+)-plain/g;
   const fontawesomeClassRegex = /\.fa-([a-z0-9-]+)/g;
-  const bootstrapClassRegex = /\.bi-([a-z0-9-]+)/g;
+  const bootstrapClassRegex = /\.bi-([a-z0-9-]+)-fill/g;
   const boxiconsClassRegex = /\.bxs-([a-z0-9-]+)/g;
   const iconoirClassRegex = /\.iconoir-([a-z0-9-]+)/g;
 
-  var rx = deviconClassRegex; // devicon
+  let rx = deviconClassRegex; // devicon
   if (lib == 'fa') {
     rx = fontawesomeClassRegex; // fontawesome
   }
@@ -91,18 +96,18 @@ function displayIcons(lib) {
     //iconBox.classList.add("justify-content-center");
 
     const iconElement = document.createElement("i");
-    var cn = iconClass + " colored"; // devicon
+    let cn = iconClass + " colored"; // devicon
     if (lib == "fa") {
-      cn = "fas " + iconClass + ""; // fontawesome
+      cn = "fas " + iconClass; // fontawesome
     }
     else if (lib == "bi") {
-      cn = "bi " + iconClass + ""; // bootstrap
+      cn = "bi " + iconClass; // bootstrap
     }
     else if (lib == "bx") {
-      cn = "bx " + iconClass + ""; // boxicons
+      cn = "bx " + iconClass; // boxicons
     }
     else if (lib == "iconoir") {
-      cn = "" + iconClass + ""; // iconoir
+      cn = "" + iconClass; // iconoir
       iconElement.style.maxWidth = "38px";
       iconElement.style.marginLeft = "30px";
     }
@@ -114,7 +119,7 @@ function displayIcons(lib) {
 
     const nameElement = document.createElement("div");
     nameElement.classList.add("icon-name");
-    nameElement.textContent = iconClass.replace("devicon-", "").replace(" colored", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace("bxs-", "").replace("iconoir-", "");
+    nameElement.textContent = iconClass.replace("devicon-", "").replace(" colored", "").replace("-plain", "").replace("bi-", "").replace("-fill", "").replace("fa-", "").replace("bxs-", "").replace("iconoir-", "");
 
     iconBox.appendChild(iconElement);
     iconBox.appendChild(nameElement);
@@ -129,10 +134,31 @@ function IconClassToClipboard(iconClass) {
     toastDiv.innerHTML = "<div class='" + iconClass + " fs-4 d-inline me-2'></div> <div class='fs-4 d-inline'>Copied to clipboard!</div>"
     const toast = new bootstrap.Toast(toastDiv);
 
-    var iconname = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace(" colored", "");
+    const iconname = iconClass.replace("devicon-", "").replace("-plain", "").replace("bi-", "").replace("fa-", "").replace(" colored", "");
     iconClass = "<i class='" + iconClass + "'></i> " + iconname 
     navigator.clipboard.writeText(iconClass);
 
     toast.show();
   }
 } 
+
+function getIconsClasses() {
+  //const fa = extractClasses("fa");
+  const devicon = extractClasses("devicon");
+  const bi = extractClasses("bi");
+  const iconClasses = [...bi, ...devicon]; // [...fa, ...bi, ...devicon];
+
+  iconClasses.forEach((value, index, array) => {
+    if (array[index].startsWith("fa")) {
+      array[index] = "fas " + value;
+    }
+    else if (array[index].startsWith("bi")) {
+      array[index] = "bi " + value;
+    }
+    else {
+      array[index] = value + " colored";
+    }
+  });
+
+  return iconClasses;
+}

@@ -5,11 +5,13 @@ namespace BlazorWasmPortfolio.Layout
 {
   public partial class MainLayout
   {
+    public bool IsLocalHost;
     public string ThemeToggleText = "🌙 Dark Mode";
     private bool DarkMode;
 
     protected override async Task OnInitializedAsync()
     {
+      IsLocalHost = NavManager.Uri.ToString().Contains("localhost", StringComparison.InvariantCultureIgnoreCase);
       var theme = await localStorage.GetItemAsync<string>("theme") ?? "light";
       await SetTheme(theme);
     }

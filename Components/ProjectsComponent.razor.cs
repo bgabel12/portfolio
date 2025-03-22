@@ -6,6 +6,9 @@ namespace BlazorWasmPortfolio.Components
   public partial class ProjectsComponent
   {
     private List<Project> Projects = [];
+    public string ImageTitle = string.Empty;
+    public string ImageFileName = "player_manager.png";
+    
     protected override async Task OnInitializedAsync()
     {
       Projects = await http.GetFromJsonAsync<List<Project>>("content/projects.json") ?? [];
@@ -28,12 +31,22 @@ namespace BlazorWasmPortfolio.Components
 
     private async Task<string> ReadFile(string fileName)
     {
-      var url = NavManager.Uri.ToString();
-      var filePath = !url.Contains("localhost", StringComparison.InvariantCultureIgnoreCase) ? "/portfolio/content/projects/" + fileName : "/content/projects/" + fileName;
+      var filePath = !NavManager.Uri.ToString().Contains("localhost", StringComparison.InvariantCultureIgnoreCase) ? "/portfolio/content/projects/" + fileName : "/content/projects/" + fileName;
       HttpResponseMessage response = await http.GetAsync(filePath);
       HttpContent content = response.Content;
 
       return await content.ReadAsStringAsync();
+    }
+
+    /// <summary>
+    /// Onclick event for images
+    /// Note: The onclick events is used in the injected HTML from the content/projects/*.txt files
+    /// </summary>
+    async Task OnImageClick(string title, string fileName)
+    {
+      ImageTitle = title;
+      ImageFileName = fileName;
+      await jsRuntime.InvokeVoidAsync("showModal", "imageModal");
     }
   }
 }

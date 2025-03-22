@@ -1,0 +1,18 @@
+﻿.grip {
+  resize: both;
+  overflow: hidden;
+  border-radius: 4px;
+  /*border-bottom: 1px solid #dadfe2;*/
+  min-width: 770px;
+  max-width: 1080px;
+  min-height: 500px;
+  padding-bottom: .5em;
+}
+
+.rz-html-editor {
+  border-bottom: none !important;
+}
+
+::deep .white-space-no-wrap {
+  white-space: nowrap;
+}

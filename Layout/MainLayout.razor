@@ -1,12 +1,18 @@
 ﻿@inherits LayoutComponentBase
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 @inject IJSRuntime jsRuntime
+@inject NavigationManager NavManager
+
+<HeadContent>
+  <RadzenTheme Theme="material" />
+</HeadContent>
 
 <div class="page">
   <main>
     <div class="position-absolute top-0 start-0 ms-3 mt-3 p-0">
-      <a href="/portfolio" class="btn btn-primary btn-sm d-inline me-3"><i class="fa-solid fa-house"></i> Home</a>
-      <a href="/portfolio/icons" class="btn btn-success btn-sm d-inline me-3"><i class="fa-solid fa-icons"></i> Icons</a>
+      <a href='@(IsLocalHost ? "/" : "/portfolio")' class="btn btn-primary btn-sm d-inline me-3"><i class="fa-solid fa-house"></i> Home</a>
+      <a href='@(IsLocalHost ? "/icons" : "/portfolio/icons")' class="btn btn-success btn-sm d-inline me-3"><i class="fa-solid fa-icons"></i> Icons</a>
+      <a href='@(IsLocalHost ? "/editor" : "/portfolio/editor")' class="btn btn-secondary btn-sm d-inline me-3"><i class="fa-solid fa-edit"></i> Editor</a>
     </div>
 
     <button id="themeToggle" class='@(DarkMode ? "btn btn-sm btn-light position-absolute top-0 end-0 mt-3 me-3 pt-0 pb-0" : "btn btn-sm btn-dark position-absolute top-0 end-0 mt-3 me-3 pt-0 pb-0")' @onclick="OnThemeClick">
